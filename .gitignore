@@ -1,0 +1,7 @@
+node_modules/
+assets/src/
+.claude/
+PRODUCT.md
+.impeccable/
+.DS_Store
+Thumbs.db
