@@ -2,7 +2,7 @@
   --bg:#F7F3EC;--paper:#FFFDF9;--sand:#EFE8DB;--ink:#0B1F3F;--ink-2:#46546B;--ink-3:#7B8599;--line:#E4DCCD;
   --navy:#0B2A5B;--aqua:#1BA8BD;--aqua-soft:#DCF2F5;--amber:#E9972E;--amber-soft:#FBEAD1;
   --green:#3E9B4F;--green-soft:#E2F0DF;--red:#D8453B;--red-soft:#F8E0DC;--blue-soft:#E1EAF6;
-  --f-serif:"Fraunces",Georgia,serif;--f-sans:"DM Sans",system-ui,sans-serif;--f-ar:"Readex Pro",sans-serif;
+  --f-display:"DG Ghayaty","Expo Arabic",sans-serif;--f-serif:"Expo Arabic",system-ui,sans-serif;--f-sans:"Expo Arabic",system-ui,sans-serif;--f-ar:"Expo Arabic",sans-serif;
   --r:22px;--r-sm:14px;--ease:cubic-bezier(.2,.8,.2,1);
   --wrap:1240px;--gut:clamp(18px,4vw,48px);
   --sh:0 1px 1px rgba(11,31,63,.04),0 18px 40px -24px rgba(11,31,63,.28);

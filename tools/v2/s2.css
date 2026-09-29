@@ -263,3 +263,13 @@ footer{background:var(--navy);color:rgba(255,255,255,.72);border-radius:36px 36p
 .vals span span{display:block;padding:0;background:none;border-radius:0}
 .fc-l img.deco{width:44%;bottom:-8%;inset-inline-end:-6%}
 html,body{overflow-x:clip}
+
+/* ---------- brand fonts: DG Ghayaty (display) + Expo Arabic (text) ---------- */
+@font-face{font-family:"DG Ghayaty";src:url(assets/fonts/DGGhayaty-Regular.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;size-adjust:90%;unicode-range:U+0000-002B,U+002D-10FFFF}
+@font-face{font-family:"Expo Arabic";src:url(assets/fonts/ExpoArabic-Book.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+html{font-synthesis-style:none}
+:is(.hero h1,h2.t,.ac-h h3,.f-cta h3,.tk span,.mmenu a:not(.b),.mark){font-family:var(--f-display);letter-spacing:0;font-style:normal}
+:is(.hero h1,h2.t,.ac-h h3,.f-cta h3) em{font-style:normal}
+html[lang="ar"] :is(.hero h1,h2.t,.ac-h h3,.f-cta h3,.tk span,.mmenu a:not(.b),.mark){font-family:var(--f-display)!important}
+html[lang="ar"] .hero h1{line-height:1.22}
+html[lang="ar"] h2.t{line-height:1.3}
