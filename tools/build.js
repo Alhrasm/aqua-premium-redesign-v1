@@ -12,6 +12,7 @@ const head=`<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{if(!sessionStorage.getItem('ap-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('bi-on')}catch(e){}</script>
 <style>
 `;
 fs.writeFileSync(__dirname+'/../index.html',head+p('s1.css')+p('s2.css')+'</style>\n</head>\n'+p('body.html')+'\n<script>\n'+p('app.js')+'</script>\n</body>\n</html>\n');

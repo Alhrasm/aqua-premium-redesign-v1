@@ -211,3 +211,31 @@ function renderFooter(){$('#fProds').innerHTML=['tuna-solid','fava-plain','hummu
 $('#fProds').addEventListener('click',e=>{const a=e.target.closest('[data-open]');if(a){e.preventDefault();openDrawer('spec',a.dataset.open)}});
 $('#yr').textContent=new Date().getFullYear();
 applyLang(LANG);observe();
+
+/* brand intro */
+(() => {
+  const root = document.documentElement, box = document.querySelector('.bintro');
+  if (!box || !root.classList.contains('bi-on')) return;
+  const logo = box.querySelector('.bintro-logo'), target = document.querySelector('.nav-logo img');
+  let done = false;
+  const finish = () => {
+    if (done) return; done = true;
+    try { sessionStorage.setItem('ap-intro', '1'); } catch (e) {}
+    root.classList.remove('bi-on'); box.remove();
+  };
+  const fly = () => {
+    if (done || box.classList.contains('fly')) return;
+    const a = logo.getBoundingClientRect(), b = target && target.getBoundingClientRect();
+    box.classList.add('fly');
+    if (!b || !b.width) { setTimeout(finish, 700); return; }
+    logo.style.transform = `translate(${b.left - a.left}px,${b.top - a.top}px) scale(${b.width / a.width})`;
+    logo.addEventListener('transitionend', finish, { once: true });
+    setTimeout(finish, 1200);
+  };
+  const go = () => setTimeout(fly, 1500);
+  (logo.complete ? go() : logo.addEventListener('load', go, { once: true }));
+  logo.addEventListener('error', finish, { once: true });
+  box.addEventListener('click', fly);
+  addEventListener('keydown', fly, { once: true });
+  setTimeout(finish, 4500);
+})();
