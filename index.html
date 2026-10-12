@@ -416,7 +416,21 @@ html.bi-on .bintro{display:grid;position:fixed;inset:0;z-index:200;place-items:c
 .bintro.fly::before{opacity:0}
 .bintro.fly .bintro-line{opacity:0}
 .bintro.fly .bintro-logo{animation:none;opacity:1;scale:1;transition:transform .9s var(--ease)}
-html.bi-on .nav-logo img{visibility:hidden}
+
+/* ---------- logo in the hero: a letterhead signature above the headline ---------- */
+.signet{display:flex;align-items:center;gap:clamp(14px,1.6vw,22px);flex-wrap:wrap;animation:signetIn 1s var(--ease) both}
+.signet-logo{height:clamp(58px,5.6vw,80px);width:auto;display:block}
+.signet-rule{width:1px;height:clamp(38px,3.6vw,52px);background:var(--line)}
+@keyframes signetIn{from{opacity:0;transform:translateY(10px)}}
+html.bi-on .signet{animation:none}
+html.bi-on .signet-logo{visibility:hidden}
+@media (max-width:560px){.signet{gap:12px}.signet-logo{height:52px}.signet-rule{height:34px}}
+@media (prefers-reduced-motion:reduce){.signet{animation:none}}
+/* ---------- footer sign-off: the real logo instead of the typed wordmark ---------- */
+.mark{line-height:0;margin-top:clamp(50px,6vw,80px)}
+.mark img{width:min(64vw,440px);height:auto;margin-inline:auto;opacity:.92;transition:opacity .6s,transform .6s var(--ease)}
+.mark:hover{color:inherit}
+.mark:hover img{opacity:1;transform:translateY(-4px)}
 </style>
 </head>
 <body>
@@ -448,7 +462,7 @@ html.bi-on .nav-logo img{visibility:hidden}
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><i>✦</i><span data-ar="حلول الجملة · القاهرة · دبي">Wholesale supply · Cairo · Dubai</span></span>
+      <div class="signet"><img class="signet-logo" src="assets/img/logo-navy.png" alt="Aqua Premium" width="548" height="398"><span class="signet-rule" aria-hidden="true"></span><span class="eyebrow"><i>✦</i><span data-ar="حلول الجملة · القاهرة · دبي">Wholesale supply · Cairo · Dubai</span></span></div>
       <h1 class="split" data-split data-ar="مخزن كامل من المعلبات والمجمدات، <em>بمورّد واحد.</em>">A whole pantry of canned &amp; frozen, <em>from one supplier.</em></h1>
       <p class="sub rv" data-ar="تونة وبقوليات وخضروات ومجمدات بجودة HACCP — لسلاسل التجزئة والموزعين والمطاعم في أكثر من 50 دولة. الطلبات تبدأ من 50 كرتونة فقط.">Tuna, legumes, vegetables and frozen lines to HACCP standards — for retailers, distributors and restaurants in 50+ countries. Orders start from just 50 cartons.</p>
       <div class="hero-cta rv">
@@ -708,7 +722,7 @@ html.bi-on .nav-logo img{visibility:hidden}
       <div><h4 data-ar="المنتجات">Products</h4><ul id="fProds"></ul></div>
       <div><h4 data-ar="تواصل">Contact</h4><ul><li><a href="mailto:info@pureibs.com">info@pureibs.com</a></li><li><a href="mailto:marketing@pureibs.com">marketing@pureibs.com</a></li><li><a href="mailto:info@pureosho-trading.com">info@pureosho-trading.com</a></li><li><a href="tel:+97143800899" dir="ltr">+971 4 380 0899</a></li></ul></div>
     </div>
-    <div class="mark" aria-hidden="true">Aqua Premium</div>
+    <div class="mark" aria-hidden="true"><img src="assets/img/logo-white.png" alt="" width="548" height="398" loading="lazy"></div>
     <div class="f-bot"><span>© <span id="yr"></span> <span data-ar="أكوا بريميوم فودز — القاهرة · دبي">Aqua Premium Foods Range — Cairo · Dubai</span></span><span data-ar="إعادة تصميم: محمد طارق">Redesign concept by Mohamed Tarek</span></div>
   </div>
 </footer>
@@ -937,7 +951,7 @@ applyLang(LANG);observe();
 (() => {
   const root = document.documentElement, box = document.querySelector('.bintro');
   if (!box || !root.classList.contains('bi-on')) return;
-  const logo = box.querySelector('.bintro-logo'), target = document.querySelector('.nav-logo img');
+  const logo = box.querySelector('.bintro-logo'), hero = document.querySelector('.signet-logo'), target = hero && hero.getBoundingClientRect().bottom > 0 ? hero : document.querySelector('.nav-logo img');
   let done = false;
   const finish = () => {
     if (done) return; done = true;

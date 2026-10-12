@@ -286,4 +286,18 @@ html.bi-on .bintro{display:grid;position:fixed;inset:0;z-index:200;place-items:c
 .bintro.fly::before{opacity:0}
 .bintro.fly .bintro-line{opacity:0}
 .bintro.fly .bintro-logo{animation:none;opacity:1;scale:1;transition:transform .9s var(--ease)}
-html.bi-on .nav-logo img{visibility:hidden}
+
+/* ---------- logo in the hero: a letterhead signature above the headline ---------- */
+.signet{display:flex;align-items:center;gap:clamp(14px,1.6vw,22px);flex-wrap:wrap;animation:signetIn 1s var(--ease) both}
+.signet-logo{height:clamp(58px,5.6vw,80px);width:auto;display:block}
+.signet-rule{width:1px;height:clamp(38px,3.6vw,52px);background:var(--line)}
+@keyframes signetIn{from{opacity:0;transform:translateY(10px)}}
+html.bi-on .signet{animation:none}
+html.bi-on .signet-logo{visibility:hidden}
+@media (max-width:560px){.signet{gap:12px}.signet-logo{height:52px}.signet-rule{height:34px}}
+@media (prefers-reduced-motion:reduce){.signet{animation:none}}
+/* ---------- footer sign-off: the real logo instead of the typed wordmark ---------- */
+.mark{line-height:0;margin-top:clamp(50px,6vw,80px)}
+.mark img{width:min(64vw,440px);height:auto;margin-inline:auto;opacity:.92;transition:opacity .6s,transform .6s var(--ease)}
+.mark:hover{color:inherit}
+.mark:hover img{opacity:1;transform:translateY(-4px)}

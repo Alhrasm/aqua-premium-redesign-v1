@@ -216,7 +216,7 @@ applyLang(LANG);observe();
 (() => {
   const root = document.documentElement, box = document.querySelector('.bintro');
   if (!box || !root.classList.contains('bi-on')) return;
-  const logo = box.querySelector('.bintro-logo'), target = document.querySelector('.nav-logo img');
+  const logo = box.querySelector('.bintro-logo'), hero = document.querySelector('.signet-logo'), target = hero && hero.getBoundingClientRect().bottom > 0 ? hero : document.querySelector('.nav-logo img');
   let done = false;
   const finish = () => {
     if (done) return; done = true;
